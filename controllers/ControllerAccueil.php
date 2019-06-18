@@ -1,4 +1,6 @@
 <?php
+require_once('views/View.php');
+
 class ControllerAccueil
 {
     private $_articleManager;
@@ -17,6 +19,7 @@ class ControllerAccueil
         $this->_articleManager = new ArticleManager;
         $articles = $this->_articleManager->getArticles();
 
-        require_onse('views/viewAccueil.php');
+        $this->_view = new View('Accueil');
+        $this->_view->generate(array('articles' => $articles));
     }
 }
