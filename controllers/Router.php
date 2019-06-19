@@ -15,7 +15,6 @@ class Router
             });
 
             $url = '';
-
             if(isset($_GET['url']))
             {
                 $url = explode('/', filter_var($_GET['url'],
