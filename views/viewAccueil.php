@@ -1,6 +1,6 @@
-<?php $this->_t = 'Mon blog';
-foreach($articles as $article): ?>
-<h2><?= $article->title() ?></h2>
-<time><?= $article->date() ?></time>
-<?php endforeach; ?>
+<?php $this->_t = 'Instagab';
+foreach($images as $image): ?>
+<h2><?= $image->getId_image() ?></h2>
+<img src="<?= "../public/pictures/".$image->getAdress() ?>">
+<?php endforeach; ?><br><br><br>
 <a href="<?= URL ?>?url=login">LOGIN</a>

@@ -27,10 +27,10 @@ class Member
 	// SET FUNCTIONS
     public function setId_member($id_member)
     {
-        $id = (int) $id;
+        $id_member= (int) $id_member;
 
-        if ($id > 0)
-            $this->_id_member = $id;
+        if ($id_member > 0)
+            $this->_id_member = $id_member;
     }
     public function setLogin($login)
     {

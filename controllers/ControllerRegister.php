@@ -17,16 +17,33 @@ class ControllerRegister
 
 	private function checkForm()
 	{
-		$login = $_POST['login'];
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		$password_repeat = $_POST['password_repeat'];
-		if (!preg_match('/^[a-z\d_]{2,20}$/i', $login))
+		$error = false;
+		$login = htmlentities($_POST['login']);
+		$email = htmlentities($_POST['email']);
+		$password = htmlentities($_POST['password']);
+		$password_repeat = htmlentities($_POST['password_repeat']);
+
+		//check login
+		if (!preg_match('/^[a-z\d_0-9]{8,20}$/i', $login))
 		{
-			$error = "pas bien tout ca";
-			echo $error;
+			$error = true;
+			$errorMsg['login'] = "Incorrect login";
+		}
+		//check email adress
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+		{
+			$error = true;
+			$errorMsg['email'] = "Incorrect email adress";
+		}
+		if ($error === true)
+		{
 			$this->_view = new View('Register');
-        	$this->_view->generate(array('error' => $error));
+        	$this->_view->generate(array('errorMsg' => $errorMsg));
+		}
+		else
+		{
+			$this->_view = new View('Login');
+			$this->_view->generate(array('info' => "You will receive a mail !"));
 		}
 	}
 

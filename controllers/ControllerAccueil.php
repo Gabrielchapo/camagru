@@ -3,7 +3,7 @@ require_once('views/View.php');
 
 class ControllerAccueil
 {
-    private $_articleManager;
+    private $_imageManager;
     private $_view;
 
     public function __construct($url)
@@ -12,16 +12,16 @@ class ControllerAccueil
             throw new Exception('Page introuvable');
         else
         {
-            $this->articles();
+            $this->images();
         }
     }
 
-    private function articles()
+    private function images()
     {
-        $this->_articleManager = new ArticleManager;
-        $articles = $this->_articleManager->getArticles();
+        $this->_imageManager = new ImageManager;
+        $images = $this->_imageManager->getImages();
 
         $this->_view = new View('Accueil');
-        $this->_view->generate(array('articles' => $articles));
+        $this->_view->generate(array('images' => $images));
     }
 }
