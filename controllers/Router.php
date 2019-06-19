@@ -23,8 +23,7 @@ class Router
 
                 $controller = ucfirst(strtolower($url[0]));
                 $controllerClass = "Controller".$controller;
-                $controllerFile = "controlers/".$controllerClass.".php";
-
+                $controllerFile = "controllers/".$controllerClass.".php";
                 if(file_exists($controllerFile))
                 {
                     require_once($controllerFile);

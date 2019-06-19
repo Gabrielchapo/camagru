@@ -26,7 +26,6 @@ abstract class Model
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {
-            
             $var[] = new $obj($data);
         }
         $req->closeCursor();

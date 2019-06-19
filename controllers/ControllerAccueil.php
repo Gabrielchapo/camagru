@@ -11,7 +11,9 @@ class ControllerAccueil
         if (isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
         else
+        {
             $this->articles();
+        }
     }
 
     private function articles()

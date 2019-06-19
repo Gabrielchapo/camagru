@@ -24,7 +24,6 @@ class View
 			if(file_exists($file))
 			{
 				extract($data);
-
 				ob_start();
 
 				require $file;
