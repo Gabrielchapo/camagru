@@ -10,8 +10,10 @@ class ControllerRegister
     {
         if (isset($url) && count($url) > 1)
 			throw new Exception('Page introuvable');
-		elseif ($_GET['submit'] === 'ok') { $this->checkForm(); }
-        else { $this->registerView(); }
+		elseif ($_GET['submit'] === 'ok')
+			$this->checkForm();
+        else 
+			$this->registerView();
     }
 
 
@@ -35,6 +37,14 @@ class ControllerRegister
 			$error = true;
 			$errorMsg['email'] = "Incorrect email adress";
 		}
+		//check password
+		if (!preg_match('/^[a-z\d_0-9]{8,20}$/i', $password))
+		{
+			$error = true;
+			$errorMsg['password'] = "Incorrect password";
+		}
+
+		//if error occurs
 		if ($error === true)
 		{
 			$this->_view = new View('Register');
@@ -42,6 +52,8 @@ class ControllerRegister
 		}
 		else
 		{
+			$this->_memberManager = new MemberManager;
+			$this->_memberManager->addMember($login, $email, $password);
 			$this->_view = new View('Login');
 			$this->_view->generate(array('info' => "You will receive a mail !"));
 		}

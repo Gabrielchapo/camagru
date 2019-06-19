@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,6 +9,13 @@
 	<header>
 		<h1><a href="<?= URL ?>">INSTAGAB</a></h1>
 		<p>Bienvenue sur mon camagru</p>
+		<?php if ($_SESSION['login'])
+		{
+			?>
+			<a>YOU ARE CONNECTED <?= $_SESSION['login']?>!</a>
+			<a href="<?= URL ?>?url=Accueil&submit=logout">LOGOUT</a>
+			<?php
+		}?>
 	</header>
 		<?= $content ?>
 	<footer>

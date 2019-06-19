@@ -12,6 +12,8 @@ class ControllerAccueil
             throw new Exception('Page introuvable');
         else
         {
+            if ($_GET['submit'] === 'logout')
+			    $this->logout();
             $this->images();
         }
     }
@@ -23,5 +25,11 @@ class ControllerAccueil
 
         $this->_view = new View('Accueil');
         $this->_view->generate(array('images' => $images));
+    }
+
+    private function logout()
+    {
+        session_start();
+        $_SESSION['login'] = null;
     }
 }
