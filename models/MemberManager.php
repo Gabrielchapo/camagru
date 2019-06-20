@@ -2,6 +2,11 @@
 
 class MemberManager extends Model
 {
+    public function getAllMembers()
+    {
+        return $this->getAll('member', 'Member');
+    }
+
     public function getMemberPassword($login)
     {
         $sql = 'SELECT password, id_member FROM member where login = :login';

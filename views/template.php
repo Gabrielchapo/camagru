@@ -9,7 +9,7 @@
 	<body>
 		<div class="header">
 			<h1>InstaGab</h1>
-			<p> Share your best pics </p>
+			<p> Share your best pics. </p>
 		</div>
 		<div class="navbar">
 			<a href="<?= URL ?>" class="active">Home</a>
@@ -24,6 +24,8 @@
 		</div>
 		
 		<?= $content ?>
-
+		<footer>
+    		<h2>footer</h2>
+		</footer>
 	</body>
 </html>

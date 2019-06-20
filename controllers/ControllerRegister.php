@@ -3,7 +3,8 @@ require_once('views/View.php');
 
 class ControllerRegister
 {
-    private $_memberManager;
+	private $_memberManager;
+	private $_imageManager;
     private $_view;
 
     public function __construct($url)
@@ -20,6 +21,7 @@ class ControllerRegister
 	private function checkForm()
 	{
 		$error = false;
+		$count = 0;
 		$login = htmlentities($_POST['login']);
 		$email = htmlentities($_POST['email']);
 		$password = htmlentities($_POST['password']);
@@ -37,13 +39,34 @@ class ControllerRegister
 			$error = true;
 			$errorMsg['email'] = "Incorrect email adress";
 		}
-		//check password
-		if (!preg_match('/^[a-z\d_0-9]{8,20}$/i', $password))
+		//check password repeat
+		if ($password !== $password_repeat)
+		{
+			$error = true;
+			$errorMsg['password_repeat'] = "Incorrect password repeated";
+		}
+
+		//check password's strongness
+		$uppercase = preg_match('@[A-Z]@', $password);
+		$lowercase = preg_match('@[a-z]@', $password);
+		$number = preg_match('@[0-9]@', $password);
+		if(!$uppercase || !$lowercase || !$number || $special || strlen($password) < 10)
 		{
 			$error = true;
 			$errorMsg['password'] = "Incorrect password";
+			$count += 1;
 		}
-
+		//check if login already exists
+		$this->_memberManager = new MemberManager;
+		$members = $this->_memberManager->getAllMembers();
+		foreach($members as $member)
+		{
+			if ($member->getLogin() === $login)
+			{
+				$error = true;
+				$errorMsg['login'] = "Login already exists";
+			}
+		}
 		//if error occurs
 		if ($error === true)
 		{
@@ -53,9 +76,14 @@ class ControllerRegister
 		else
 		{
 			$this->_memberManager = new MemberManager;
-			$this->_memberManager->addMember($login, $email, $password);
-			$this->_view = new View('Login');
-			$this->_view->generate(array('info' => "You will receive a mail !"));
+			$this->_memberManager->addMember($login, $email, hash('whirlpool', $password));
+			session_start();
+			$_SESSION['login'] = $login;
+			$_SESSION['id'] = $count;
+			$this->_imageManager = new ImageManager;
+			$images = $this->_imageManager->getAllImages();
+			$this->_view = new View('Accueil');
+			$this->_view->generate(array('images' => $images));
 		}
 	}
 

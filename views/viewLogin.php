@@ -11,6 +11,3 @@
     <a href="<?= URL ?>?url=register">REGISTER HERE</a>
     </div>
 </form>
-<footer>
-        	<h2>footer</h2>
-    	</footer>
