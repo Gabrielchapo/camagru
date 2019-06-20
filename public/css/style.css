@@ -186,3 +186,11 @@ button:hover {
 		width: 100%;
 	}
 }
+
+/* PREFERENCES */
+
+.settings {
+	padding: 10px;
+	margin: 10px;
+	background: #eb7d7d;
+}

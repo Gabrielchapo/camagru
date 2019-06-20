@@ -3,7 +3,7 @@ require_once('views/View.php');
 
 class ControllerProfil
 {
-    private $_imageManager;
+    private $_memberManager;
     private $_view;
 
     public function __construct($url)
@@ -11,16 +11,12 @@ class ControllerProfil
         if (isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
         else
-            $this->images();
+            $this->get_view();
     }
 
-    private function images()
+    private function get_view()
     {
-		session_start();
-        $this->_imageManager = new ImageManager;
-        $images = $this->_imageManager->getMemberImages($_SESSION["id"]);
-
         $this->_view = new View('Profil');
-        $this->_view->generate(array('images' => $images));
+        $this->_view->generate(array());
     }
 }

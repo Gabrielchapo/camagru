@@ -1,13 +1,5 @@
 <div class="row">
-	<div class="main">
-		<div class="sidebar">
-			<?php $this->_t = 'Profil';
-
-			foreach($images as $image): ?>
-				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
-			<?php endforeach; ?>
-		</div>
-		<div class="montage">
-		</div>
+	<div class="settings">
+		<a href="<?= URL ?>?url=Accueil&submit=delete_account">DELETE ACCOUNT</a>
 	</div>
 </div>

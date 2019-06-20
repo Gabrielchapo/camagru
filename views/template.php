@@ -16,10 +16,11 @@
 			<?php
 				session_start();
 				if ($_SESSION['login']) {?>
-				<a href="<?= URL ?>?url=Accueil&submit=logout" class="right">LOGOUT</a>
-				<a href="<?= URL ?>?url=Profil" class="right">PROFIL</a>
+				<a href="<?= URL ?>?url=Accueil&submit=logout" class="right">Logout</a>
+				<a href="<?= URL ?>?url=Profil" class="right">Profil</a>
+				<a href="<?= URL ?>?url=Montage" class="right">Montage</a>
 			<?php } else { ?>
-				<a href="<?= URL ?>?url=login" class="right">LOGIN</a>
+				<a href="<?= URL ?>?url=login" class="right">Login</a>
 			<?php } ?>
 		</div>
 		

@@ -13,7 +13,9 @@ class ControllerAccueil
         else
         {
             if ($_GET['submit'] === 'logout')
-			    $this->logout();
+                $this->logout();
+            if ($_GET['submit'] === 'delete_account')
+			    $this->delete_account();
             $this->images();
         }
     }
@@ -31,5 +33,10 @@ class ControllerAccueil
     {
         session_start();
         $_SESSION['login'] = null;
+    }
+
+    private function delete_account()
+    {
+        
     }
 }
