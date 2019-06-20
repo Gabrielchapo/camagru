@@ -1,4 +1,4 @@
-img {
+.row img {
 	width: 100%;
 }
 
@@ -7,7 +7,7 @@ img {
 }
 
 body {
-	background-color: aqua;
+	background-color: rgb(10, 155, 223);
 	font-family: 'Courier New', Courier, monospace;
 	margin: 0;
 	padding: 20px;
@@ -18,7 +18,7 @@ body {
 .header {
 	padding: 80px;
 	text-align: center;
-	background: #1abc9c;
+	background: #eb7d7d;
 	color: white;
 }
 
@@ -67,12 +67,15 @@ body {
 }
 
 /* FOOTER */
-.footer {
-	padding: 20px;
+footer {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+	margin-top: 820px;
 	text-align: center;
-	background: #1abc9c;
+	background: #eb7d7d;
 }
-
 
 /* GALLERY */
 .row {
@@ -140,4 +143,45 @@ button {
   
 button:hover {
 	opacity: 1;
+}
+
+.main {
+	margin-top: 5px;
+	margin-bottom: 50px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+	float: left;
+	width: 25%;
+	background-color: #eb7d7d;
+	height: 800px;
+	overflow: auto;
+}
+
+.sidebar img {
+	width: 100%;
+	padding: 5px;
+}
+
+/* MONTAGE */
+
+.montage {
+	float: right;
+    width: 74%;
+	background-color: #eb7d7d;
+	height: 800px;
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+	.sidebar {
+	  	width: 0;
+	  	height: 0;
+	  	margin: 0;
+	}
+	.montage {
+		width: 100%;
+	}
 }

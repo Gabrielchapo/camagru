@@ -20,7 +20,7 @@ class ControllerProfil
         $this->_imageManager = new ImageManager;
         $images = $this->_imageManager->getMemberImages($_SESSION["id"]);
 
-        $this->_view = new View('Accueil');
+        $this->_view = new View('Profil');
         $this->_view->generate(array('images' => $images));
     }
 }

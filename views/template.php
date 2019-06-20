@@ -25,8 +25,8 @@
 		
 		<?= $content ?>
 
-		<div class="footer">
-			<h2>Footer</h2>
-		</div>
+		<footer>
+        	<h2>footer</h2>
+    	</footer>
 	</body>
 </html>
