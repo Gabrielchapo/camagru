@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,10 +13,11 @@
 		</div>
 		<div class="navbar">
 			<a href="<?= URL ?>" class="active">Home</a>
-			<a href="#">Link</a>
-			<a href="#">Link</a>
-			<?php if ($_SESSION['login']) {?>
+			<?php
+				session_start();
+				if ($_SESSION['login']) {?>
 				<a href="<?= URL ?>?url=Accueil&submit=logout" class="right">LOGOUT</a>
+				<a href="<?= URL ?>?url=Profil" class="right">PROFIL</a>
 			<?php } else { ?>
 				<a href="<?= URL ?>?url=login" class="right">LOGIN</a>
 			<?php } ?>

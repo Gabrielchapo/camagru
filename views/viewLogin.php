@@ -5,6 +5,7 @@
         <h1>Login</h1>
         <input type="text" placeholder="Enter Login" name="login" required><br>
         <input type="password" placeholder="Enter Password" name="password" required><br>
+        <a style="color:red;"><?= $errorMsg ?></a><br>
         <button type="submit">log-in</button>
     </div>
 </form>

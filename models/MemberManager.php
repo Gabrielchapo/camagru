@@ -2,9 +2,13 @@
 
 class MemberManager extends Model
 {
-    public function getMembers()
+    public function getMemberPassword($login)
     {
-        return $this->getAll('member', 'Member');
+        $sql = 'SELECT password, id_member FROM member where login = :login';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['login' => $login]);
+        $result = $req->fetch();
+        return $result;
     }
 
     public function addMember($login, $email, $password)
