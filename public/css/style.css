@@ -16,7 +16,8 @@ body {
 /* HEADER */
 
 .header {
-	padding: 80px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	text-align: center;
 	background: #eb7d7d;
 	color: white;
@@ -68,12 +69,11 @@ body {
 
 /* FOOTER */
 footer {
-	left: 0;
-	bottom: 0;
 	width: 100%;
 	height: 80px;
-	margin-top: 820px;
+	margin-top: 20px;
 	text-align: center;
+	padding: 10px;
 	background: #eb7d7d;
 }
 

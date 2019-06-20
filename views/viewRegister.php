@@ -17,3 +17,6 @@
         <button type="submit">Register</button>
     </div>
 </form>
+<footer>
+        	<h2>footer</h2>
+    	</footer>

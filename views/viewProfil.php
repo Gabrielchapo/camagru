@@ -9,3 +9,6 @@
 	<div class="montage">
 	</div>
 </div>
+<footer>
+        	<h2>footer</h2>
+    	</footer>

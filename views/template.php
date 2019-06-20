@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div class="header">
-			<h1>InstaGab  </h1>
+			<h1>InstaGab</h1>
 			<p> Share your best pics </p>
 		</div>
 		<div class="navbar">
@@ -25,8 +25,5 @@
 		
 		<?= $content ?>
 
-		<footer>
-        	<h2>footer</h2>
-    	</footer>
 	</body>
 </html>
