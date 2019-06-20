@@ -2,23 +2,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" :>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../public/css/style.css" type="text/css">
 		<title><?= $t ?></title>
 	</head>
-	<header>
-		<h1><a href="<?= URL ?>">INSTAGAB</a></h1>
-		<p>Bienvenue sur mon camagru</p>
-		<?php if ($_SESSION['login'])
-		{
-			?>
-			<a>YOU ARE CONNECTED <?= $_SESSION['login']?>!</a>
-			<a href="<?= URL ?>?url=Accueil&submit=logout">LOGOUT</a>
-			<?php
-		}?>
-	</header>
+	<body>
+		<div class="header">
+			<h1>InstaGab  </h1>
+			<p> Share your best pics </p>
+		</div>
+		<div class="navbar">
+			<a href="<?= URL ?>" class="active">Home</a>
+			<a href="#">Link</a>
+			<a href="#">Link</a>
+			<?php if ($_SESSION['login']) {?>
+				<a href="<?= URL ?>?url=Accueil&submit=logout" class="right">LOGOUT</a>
+			<?php } else { ?>
+				<a href="<?= URL ?>?url=login" class="right">LOGIN</a>
+			<?php } ?>
+		</div>
+		
 		<?= $content ?>
-	<footer>
-		<p>Créé par Gabriel Drai</p>
-	</footer>
+
+		<div class="footer">
+			<h2>Footer</h2>
+		</div>
+	</body>
 </html>
