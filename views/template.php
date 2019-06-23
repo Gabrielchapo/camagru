@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="../public/css/style.css" type="text/css">
+		<link rel="icon" href="../public/icon.png" />
 		<title><?= $t ?></title>
 	</head>
 	<body>
@@ -26,7 +27,7 @@
 		
 		<?= $content ?>
 		<footer>
-    		<h2>footer</h2>
+    		<h2>Instagab ©</h2>
 		</footer>
 	</body>
 </html>

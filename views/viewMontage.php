@@ -8,6 +8,10 @@
 			<?php endforeach; ?>
 		</div>
 		<div class="montage">
+			<video id="video" autoplay="true"></video>
+			<button id="takepicturebttn" onclick="takepicture()">Take picture</button>
+			<canvas id="canvas"></canvas>
 		</div>
 	</div>
 </div>
+<script src="<?= URL ?>public/js/montage.js"></script>

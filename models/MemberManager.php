@@ -25,5 +25,28 @@ class MemberManager extends Model
             'password' => $password,
             'email' => $email,
         ]);
+        $sql = 'SELECT id_member FROM member where login = :login';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['login' => $login]);
+        $result = $req->fetch();
+        return $result["id_member"];
+    }
+
+    public function modifyLogin($login)
+    {
+        session_start();
+        $sql = 'UPDATE member SET login = :new_login WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute([
+            'new_login' => $login,
+            'id' => $_SESSION['id'],
+            ]);
+    }
+
+    public function deleteMember($id)
+    {
+        $sql = 'DELETE FROM member WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $id]);
     }
 }

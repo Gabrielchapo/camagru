@@ -39,7 +39,6 @@ class ControllerLogin
 			$_SESSION['id'] = $member["id_member"];
 			$this->_imageManager = new ImageManager;
 			$images = $this->_imageManager->getAllImages();
-	
 			$this->_view = new View('Accueil');
 			$this->_view->generate(array('images' => $images));
         }

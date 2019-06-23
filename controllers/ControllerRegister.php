@@ -21,7 +21,6 @@ class ControllerRegister
 	private function checkForm()
 	{
 		$error = false;
-		$count = 0;
 		$login = htmlentities($_POST['login']);
 		$email = htmlentities($_POST['email']);
 		$password = htmlentities($_POST['password']);
@@ -54,7 +53,6 @@ class ControllerRegister
 		{
 			$error = true;
 			$errorMsg['password'] = "Incorrect password";
-			$count += 1;
 		}
 		//check if login already exists
 		$this->_memberManager = new MemberManager;
@@ -75,11 +73,10 @@ class ControllerRegister
 		}
 		else
 		{
-			$this->_memberManager = new MemberManager;
-			$this->_memberManager->addMember($login, $email, hash('whirlpool', $password));
+			$id = $this->_memberManager->addMember($login, $email, hash('whirlpool', $password));
 			session_start();
 			$_SESSION['login'] = $login;
-			$_SESSION['id'] = $count;
+			$_SESSION['id'] = $id;
 			$this->_imageManager = new ImageManager;
 			$images = $this->_imageManager->getAllImages();
 			$this->_view = new View('Accueil');

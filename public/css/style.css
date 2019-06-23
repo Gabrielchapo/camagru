@@ -170,7 +170,7 @@ button:hover {
 
 .montage {
 	float: right;
-    width: 74%;
+  width: 74%;
 	background-color: #eb7d7d;
 	height: 800px;
 	overflow: auto;
@@ -193,4 +193,21 @@ button:hover {
 	padding: 10px;
 	margin: 10px;
 	background: #eb7d7d;
+}
+
+/* CAMERA */
+
+#video {
+	padding: 10px;
+	width: 80%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#takepicturebttn {
+	background-color: #ff0000;
+}
+.red {
+	background-color: #ff0000;
 }
