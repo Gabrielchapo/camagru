@@ -26,7 +26,7 @@ class ControllerLogin
 		$this->_memberManager = new MemberManager;
 		$member = $this->_memberManager->getMemberPassword($login);
 		
-		if (!$member["password"] || $member["password"] !== $password)
+		if ($member["password"] !== hash('whirlpool', $password))
 		{
 			$errorMsg = "Incorrect login or password";
 			$this->_view = new View('Login');

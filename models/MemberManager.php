@@ -18,7 +18,7 @@ class MemberManager extends Model
 
     public function addMember($login, $email, $password)
     {
-        $sql = 'INSERT INTO member VALUES (id_member, :login, :password, :email, privilege)';
+        $sql = 'INSERT INTO member VALUES (id_member, :login, :password, :email, confirmEmail, preference)';
         $req = $this->getBdd()->prepare($sql);
         $req->execute([
             'login' => $login,
@@ -39,6 +39,28 @@ class MemberManager extends Model
         $req = $this->getBdd()->prepare($sql);
         $req->execute([
             'new_login' => $login,
+            'id' => $_SESSION['id'],
+            ]);
+    }
+
+    public function modifyEmail($email)
+    {
+        session_start();
+        $sql = 'UPDATE member SET email = :new_email WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute([
+            'new_email' => $email,
+            'id' => $_SESSION['id'],
+            ]);
+    }
+
+    public function modifyPassword($password)
+    {
+        session_start();
+        $sql = 'UPDATE member SET password = :new_password WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute([
+            'new_password' => $password,
             'id' => $_SESSION['id'],
             ]);
     }

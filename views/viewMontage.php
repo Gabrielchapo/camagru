@@ -10,7 +10,11 @@
 		<div class="montage">
 			<video id="video" autoplay="true"></video>
 			<button id="takepicturebttn" onclick="takepicture()">Take picture</button>
-			<canvas id="canvas"></canvas>
+			<div class="canvas__container">
+				<canvas id="canvas" class="canvas__canvas"></canvas>
+				<img src="" id="mirror" class="canvas__mirror" />
+			</div>
+			<a href="#" class="button" id="btn-download">Download</a>
 		</div>
 	</div>
 </div>

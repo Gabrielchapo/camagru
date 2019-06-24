@@ -38,15 +38,43 @@ class ControllerProfil
         {
             $login = htmlentities($_POST['login']);
             if (!preg_match('/^[a-z\d_0-9]{8,20}$/i', $login))
-		    {
-			    $error = true;
                 $errorMsg['login'] = "Incorrect login";
-            }
             else
             {
                 $this->_memberManager->modifyLogin($login);
                 $_SESSION["login"] = $login;
                 $errorMsg['login'] = "Login has been modified";
+            }
+        }
+
+        //Check email
+        if (isset($_POST['email']) != "")
+        {
+            $email = htmlentities($_POST['email']);
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+                $errorMsg['email'] = "Incorrect email adress";
+            else
+            {
+                $this->_memberManager->modifyEmail($email);
+                $errorMsg['email'] = "Email has been modified";
+            }
+        }
+
+        //Check password
+        if (isset($_POST['password']) && isset($_POST['password_repeat']))
+        {
+            //check password's strongness
+		    $uppercase = preg_match('@[A-Z]@', $_POST['password']);
+		    $lowercase = preg_match('@[a-z]@', $_POST['password']);
+		    $number = preg_match('@[0-9]@', $_POST['password']);
+		    if(!$uppercase || !$lowercase || !$number || strlen($_POST['password']) < 10)
+			    $errorMsg['password'] = "Incorrect password (too weak)";
+            else if ($_POST['password'] !== $_POST['password_repeat'])
+                $errorMsg['password_repeat'] = "Passwords don't match";
+            else
+            {
+                $this->_memberManager->modifyPassword(hash('whirlpool', $_POST['password']));
+                $errorMsg['password'] = "Password has been modified";
             }
         }
         //print view

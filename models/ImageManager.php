@@ -7,6 +7,14 @@ class ImageManager extends Model
         return $this->getAll('images', 'Image');
     }
 
+    public function getNbImages()
+    {
+        $req = $this->getBdd()->prepare('SELECT COUNT(id_image) FROM images');
+        $req->execute();
+        $result = $req->fetch();
+        return $result["COUNT(id_image)"];
+    }
+
     public function getMemberImages($id)
     {
         $var = [];
