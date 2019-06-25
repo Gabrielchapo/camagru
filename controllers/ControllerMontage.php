@@ -10,8 +10,15 @@ class ControllerMontage
     {
         if (isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
-        else
-            $this->images();
+        else if ($_GET['submit'] === 'download')
+            $this->download_image();
+        $this->images();
+    }
+
+    private function download_image()
+    {
+        $img = $_POST["img"];
+        file_put_contents("public/pictures/tmp.png", $img);
     }
 
     private function images()
