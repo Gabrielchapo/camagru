@@ -216,28 +216,29 @@ button:hover {
 
 #canvas {
 	padding: 10px;
-	width: 80%;
+	width: 100%;
+	height: auto;
 	display: block;
     margin-left: auto;
     margin-right: auto
 }
 .canvas__container {
-  height: 100%;
-  position: relative;
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
+	height: auto;
 }
 .canvas__canvas {
-  height: 100%;
+  width: 80%;
+	height: auto;
   position: relative;
-  width: 100%;
   z-index: 1;
 }
 .canvas__mirror {
-  height: 100%;
   left: 0;
   position: absolute;
   top: 0;
-  width: 100%; 
+	width: 80%;
+	height: auto;
 }
 
 /* PAGE BUTTON */
@@ -266,4 +267,9 @@ button:hover {
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+.center {
+	margin: 0 auto;
+    text-align: center;
 }

@@ -14,7 +14,7 @@
 				<canvas id="canvas" class="canvas__canvas"></canvas>
 				<img src="" id="mirror" class="canvas__mirror" />
 			</div>
-			<a href="#" class="button" id="btn-download">Download</a>
+			<button class="button" onclick="downloadPicture()">Download</button>
 		</div>
 	</div>
 </div>

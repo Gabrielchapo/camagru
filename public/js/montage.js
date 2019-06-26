@@ -23,13 +23,12 @@ var cnvs = document.getElementById('canvas'),
 cnvs.width = mirror.width = window.innerWidth;
 cnvs.height = mirror.height = window.innerHeight;
 
-var button = document.getElementById('btn-download');
-button.addEventListener('click', function (e) {
+function downloadPicture() {
     let dataURL = canvas.toDataURL();
-    button.href = dataURL;
+    
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '?url=Montage&submit=download');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.addEventListener('readystatechange', () => {});
     xhr.send("img=" + dataURL);
-});
+}
