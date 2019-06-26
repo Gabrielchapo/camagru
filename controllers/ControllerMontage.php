@@ -17,12 +17,21 @@ class ControllerMontage
 
     private function download_image()
     {
+        session_start();
         $img = $_POST["img"];
+        $this->_imageManager = new ImageManager;
 
         $img = str_replace('data:image/png;base64,', '', $img);
         $img = str_replace(' ', '+', $img);
         $dest = base64_decode($img);
-        file_put_contents("public/pictures/tmp.png", $dest);
+
+        $adress = $this->_imageManager->getNbImages().".png";
+        $id_author = $_SESSION["id"];
+        $date_creation = date("Y-m-d H:i:s");
+        $date_creation = str_replace(' ', ':', $date_creation);
+
+        file_put_contents("public/pictures/".$adress, $dest);
+        $this->_imageManager->addImages($date_creation, $adress, $id_author);
     }
 
     private function images()

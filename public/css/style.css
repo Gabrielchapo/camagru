@@ -80,6 +80,7 @@ footer {
 /* GALLERY */
 .row {
 	margin: 8px -16px;
+	margin: 0 auto;
 }
   
 .row, .row > .column {
@@ -87,8 +88,10 @@ footer {
 }
   
 .column {
-	float: left;
-	width: 25%;
+    float: left;
+    width: 24%;
+    background-color: #eb7d7d;
+    margin: 5px;
 }
   
 .row:after {
@@ -99,13 +102,13 @@ footer {
 
 @media screen and (max-width: 1200px) {
 	.column {
-	  width: 50%;
+	  width: 48%;
 	}
 }
   
 @media screen and (max-width: 600px) {
 	.column {
-	  width: 100%;
+	  width: 96%;
 	}
 }
 
@@ -170,7 +173,7 @@ button:hover {
 
 .montage {
 	float: right;
-  width: 74%;
+  	width: 74%;
 	background-color: #eb7d7d;
 	height: 800px;
 	overflow: auto;
@@ -201,8 +204,8 @@ button:hover {
 	padding: 10px;
 	width: 80%;
 	display: block;
-    margin-left: auto;
-    margin-right: auto
+  margin-left: auto;
+  margin-right: auto
 }
 
 #takepicturebttn {
@@ -219,8 +222,8 @@ button:hover {
 	width: 100%;
 	height: auto;
 	display: block;
-    margin-left: auto;
-    margin-right: auto
+  margin-left: auto;
+  margin-right: auto;
 }
 .canvas__container {
   margin: 0 auto;
@@ -271,5 +274,20 @@ button:hover {
 
 .center {
 	margin: 0 auto;
-    text-align: center;
+  text-align: center;
+}
+
+/* COMMENT */
+
+.comment {
+	background-color: #e29696;
+	height: 200px;
+	overflow: auto;
+}
+
+/* LIKES */
+
+.likes {
+	background-color: #aa7878;
+	height: 50px;
 }
