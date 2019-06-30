@@ -4,6 +4,7 @@ require_once('views/View.php');
 class ControllerAccueil
 {
     private $_imageManager;
+    private $_likeManager;
     private $_view;
 
     public function __construct($url)
@@ -32,6 +33,9 @@ class ControllerAccueil
     private function images($page)
     {
         $this->_imageManager = new ImageManager;
+        $this->_likeManager = new LikeManager;
+
+        $likes = $this->_likeManager->getAllLikes();
         $images = $this->_imageManager->getAllImages();
         $nb_images = $this->_imageManager->getNbImages();
         $this->_view = new View('Accueil');
@@ -39,6 +43,7 @@ class ControllerAccueil
             'images' => $images,
             'page' => $page,
             'nb_images' => $nb_images,
+            'likes' => $likes,
         ));
     }
 

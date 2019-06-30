@@ -1,12 +1,11 @@
 <?php
 
-class Image
+class Like
 {
-    private $_id_image;
-    private $_date_creation;
-    private $_adress;
+    private $_id_like;
     private $_id_author;
-
+	private $_id_image;
+	
     public function __construct(array $data)
     {
         $this->hydrate($data);
@@ -24,42 +23,35 @@ class Image
     }
 
     // SET FUNCTIONS
-    public function setId_image($id_image)
+    public function setId_like($id_like)
     {
-        $id_image = (int) $id_image;
+        $id_like = (int) $id_like;
 
-        if ($id_image > 0)
-            $this->_id_image = $id_image;
+        if ($id_like > 0)
+            $this->_id_like = $id_like;
     }
-    public function setDate_creation($date_creation)
-    {
-        $this->_date_creation = $date_creation;
-    }
-    public function setAdress($adress)
-    {
-        $this->_adress= $adress;
-	}
 	public function setId_author($id_author)
     {
 		if ($id_author > 0)
             $this->_id_author = $id_author;
     }
-
+    public function setId_image($id_image)
+    {
+		if ($id_image > 0)
+            $this->_id_image = $id_image;
+    }
+	
 	// GET FUNCTIONS
     public function getId_image()
     {
         return $this->_id_image;
     }
-    public function getDate_creation()
-    {
-        return $this->_date_creation;
-    }
-    public function getAdress()
-    {
-        return $this->_adress;
-	}
 	public function getId_author()
     {
     	return $this->_id_author;
+    }
+    public function getId_likes()
+    {
+    	return $this->_id_likes;
     }
 }
