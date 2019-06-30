@@ -161,7 +161,7 @@ button:hover {
 	float: left;
 	width: 25%;
 	background-color: #eb7d7d;
-	height: 800px;
+	height: 1000px;
 	overflow: auto;
 }
 
@@ -170,79 +170,12 @@ button:hover {
 	padding: 5px;
 }
 
-/* MONTAGE */
-
-.montage {
-	float: right;
-  width: 74%;
-	background-color: #eb7d7d;
-	height: 800px;
-	overflow: auto;
-}
-
-@media screen and (max-width: 700px) {
-	.sidebar {
-	  	width: 0;
-	  	height: 0;
-	  	margin: 0;
-	}
-	.montage {
-		width: 100%;
-	}
-}
-
 /* PREFERENCES */
 
 .settings {
 	padding: 10px;
 	margin: 10px;
 	background: #eb7d7d;
-}
-
-/* CAMERA */
-
-#video {
-	padding: 10px;
-	width: 80%;
-	display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-#takepicturebttn {
-	background-color: #ff0000;
-}
-.red {
-	background-color: #ff0000;
-}
-
-/* CANVAS */
-
-#canvas {
-	padding: 10px;
-	width: 80%;
-	height: auto;
-	display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.canvas__container {
-  margin: 0 auto;
-  width: 100%;
-	height: auto;
-}
-.canvas__canvas {
-  width: 80%;
-	height: auto;
-  position: relative;
-  z-index: 1;
-}
-.canvas__mirror {
-  left: 0;
-  position: absolute;
-  top: 0;
-	width: 80%;
-	height: auto;
 }
 
 /* PAGE BUTTON */
@@ -303,4 +236,104 @@ button:hover {
 .likes a {
 	float: left;
 	padding-top: 17px;
+}
+/* FILTER */
+
+.filter {
+	float: right;
+  width: 74%;
+	background-color: #eb7d7d;
+	height: 200px;
+	overflow: auto;
+}
+
+.filter img {
+	height: 100%;
+	width: auto;
+}
+
+/* MONTAGE */
+
+.montage {
+	margin-top: 10px;
+	float: right;
+  width: 74%;
+	background-color: #eb7d7d;
+	height: 790px;
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+	.sidebar {
+	  	width: 0;
+	  	height: 0;
+	  	margin: 0;
+	}
+	.montage {
+		width: 100%;
+	}
+	.filter {
+		width: 100%;
+	}
+}
+
+/* CAMERA & CANVAS & FILTER */
+
+.inside {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+.buttons_list {
+	position: relative;
+	display: inline-block;
+	height: 40px;
+	width: 430px;
+}
+.snap_button {
+	float: left;
+	width: 100px;
+}
+.retry_button {
+	float: left;
+}
+.import_button {
+	float: right;
+	width: 150px;
+	font-size: 12px;
+}
+
+.camera_view {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+.filter_view {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+.filter_img
+{
+	z-index: 10;
+	width: 100%;
+	height: 180px;
+}
+.snap_view {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+#imgLoader {
+	display: none;
+}
+.imported {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
 }

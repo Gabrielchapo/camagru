@@ -7,14 +7,26 @@
 				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
 			<?php endforeach; ?>
 		</div>
+
+		<div class="filter">
+			<img src="../public/filters/42.png" onclick="selectFilter('42.png')"?>
+			<img src="../public/filters/apple.png"onclick="selectFilter('apple.png')"?>
+		</div>
+
 		<div class="montage">
-			<video id="video" autoplay="true"></video>
-			<button id="takepicturebttn" onclick="takepicture()">Take picture</button>
-			<div class="canvas__container">
-				<canvas id="canvas" class="canvas__canvas"></canvas>
-				<img src="" id="mirror" class="canvas__mirror" />
+            <div class="inside">
+                <video class="camera_view" id="video" autoplay></video>
+                <canvas class="imported" id="imported"></canvas>
+                <div class="filter_view">
+                    <img class="filter_img" id="filter_image" src="">
+                </div>
+                <canvas class="snap_view" id="snap_canvas"></canvas>
 			</div>
-			<button class="button" onclick="downloadPicture()">Download</button>
+			<div class="buttons_list">
+                <button  type="button" disabled class="snap_button" id="snap_button" onclick="checkButton()">Snap it!</button>
+                <button class="import_button" id="import_button">Import a picture</button>
+                <input type="file" id="imgLoader"/>
+            </div>
 		</div>
 	</div>
 </div>
