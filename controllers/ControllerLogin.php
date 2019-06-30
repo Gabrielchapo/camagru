@@ -3,6 +3,7 @@ require_once('views/View.php');
 
 class ControllerLogin
 {
+	private $_ctrl;
 	private $_memberManager;
 	private $_imageManager;
     private $_view;
@@ -37,10 +38,8 @@ class ControllerLogin
 			session_start();
 			$_SESSION['login'] = $login;
 			$_SESSION['id'] = $member["id_member"];
-			$this->_imageManager = new ImageManager;
-			$images = $this->_imageManager->getAllImages();
-			$this->_view = new View('Accueil');
-			$this->_view->generate(array('images' => $images));
+			require_once('controllers/ControllerAccueil.php');
+            $this->_ctrl = new ControllerAccueil(URL."Accueil");
         }
 	}
     private function loginView()

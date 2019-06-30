@@ -4,15 +4,7 @@ class LikeManager extends Model
 {
     public function getAllLikes()
     {
-        $var = [];
-        $req = $this->getBdd()->prepare('SELECT * FROM likes');
-        $req->execute();
-        while($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
-            $var[] = new Like($data);
-        }
-        $req->closeCursor();
-        return $var;
+        return $this->getAll("likes", "Like");
     }
 
     public function addLike($id_image, $id_author)

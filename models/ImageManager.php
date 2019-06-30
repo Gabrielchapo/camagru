@@ -4,15 +4,7 @@ class ImageManager extends Model
 {
     public function getAllImages()
     {
-        $var = [];
-        $req = $this->getBdd()->prepare('SELECT * FROM images ORDER BY date_creation');
-        $req->execute();
-        while($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
-            $var[] = new Image($data);
-        }
-        $req->closeCursor();
-        return $var;
+        return $this->getAll("images", "Image");
     }
 
     public function getNbImages()

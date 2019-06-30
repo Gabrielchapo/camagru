@@ -11,10 +11,16 @@
 			<div class="column">
 
 				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
-
-				<div class="comment">
-				On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
-				</div>
+				
+				<div class="comment"> <?php
+				foreach($comments as $comment):
+					if ($image->getId_image() == $comment->getId_picture())
+					{
+						echo "<a><b>".$comment->getDate_comment()." - </b></a>";
+						echo "<a>".$comment->getContent()."</a></br></br>";
+					}
+				endforeach;
+				?></div>
 
 				<?php
 				$nb_likes = 0;
@@ -29,9 +35,10 @@
 				endforeach;
 				?>
 				<div class="likes">
-					<?php if ($liked == false) { ?> <img class="like_logo" src="../public/dislike.png"> <?php } 
-					else { ?> <img class="like_logo" src="../public/like.png"> <?php } ?>
-					<a> <?= $nb_likes ?> Like(s)</a>
+					<?php if ($liked == false) { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/dislike.png"> <?php } 
+					else { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/like.png"> <?php } ?>
+					<a id="nb_likes<?= $image->getId_image() ?>"> <?= $nb_likes ?> </a>
+					<a>&nbsp;Like(s)</a>
 				</div>
 			</div>
 		<?php
