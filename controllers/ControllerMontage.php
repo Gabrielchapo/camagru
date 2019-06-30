@@ -25,7 +25,7 @@ class ControllerMontage
         $img = str_replace(' ', '+', $img);
         $dest = base64_decode($img);
 
-        $adress = $this->_imageManager->getNbImages().".png";
+        $adress = $this->_imageManager->getLast_id_plus_one().".png";
         $id_author = $_SESSION["id"];
         $date_creation = date("Y-m-d H:i:s");
         $date_creation = str_replace(' ', ':', $date_creation);

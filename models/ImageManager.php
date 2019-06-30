@@ -38,4 +38,13 @@ class ImageManager extends Model
             'id_author' => $id_author,
         ]);
     }
+
+    public function getLast_id_plus_one()
+    {
+        $sql = "SELECT id_image FROM images ORDER BY id_image DESC LIMIT 1";
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute();
+        $result = $req->fetch();
+        return $result["id_image"] + 1;
+    }
 }
