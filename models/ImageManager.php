@@ -47,4 +47,11 @@ class ImageManager extends Model
         $result = $req->fetch();
         return $result["id_image"] + 1;
     }
+
+    public function deleteImage($id)
+    {
+        $sql = 'DELETE FROM images WHERE id_image = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $id]);
+    }
 }

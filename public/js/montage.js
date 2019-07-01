@@ -21,7 +21,6 @@ if (navigator.mediaDevices.getUserMedia)
 
 function checkButton()
 {
-    console.log("hello");
     var mode = document.getElementsByClassName("snap_button")[0].id;
     if (mode == 'snap_button')
     {
@@ -82,7 +81,7 @@ function savePicture()
       }
   };
   var canvasData = canvas.toDataURL('image/png');
-  req.send('img=' + canvasData /*+ '&filterName=' + filterName*/);
+  req.send('img=' + canvasData );
   retry();
 }
 
@@ -132,4 +131,25 @@ function selectFilter(filter_name)
     {
         snapButton.disabled = false;
     }
+}
+
+function deleteImg(id_image)
+{
+  const req = new XMLHttpRequest();
+  req.open('POST', '?url=Montage&submit=delete', true);
+  req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  req.onreadystatechange = function()
+  {
+      if (this.readyState === XMLHttpRequest.DONE) {
+          if (this.status === 200) {
+              console.log("Response: %s", this.responseText);
+          } else {
+              console.log("Response status : %d (%s)", this.status, this.statusText);
+          }
+      }
+  };
+  var canvasData = canvas.toDataURL('image/png');
+  req.send('id_image=' + id_image);
+  retry();
 }

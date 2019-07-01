@@ -19,8 +19,8 @@
 						echo "<a><b>".$comment->getDate_comment()." - </b></a>";
 						echo "<a>".$comment->getContent()."</a></br></br>";
 					}
-				endforeach;
-				?></div>
+				endforeach;?>
+				</div>
 
 				<?php
 				$nb_likes = 0;

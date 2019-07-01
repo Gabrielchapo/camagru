@@ -4,6 +4,7 @@
 			<?php $this->_t = 'Montage';
 
 			foreach($images as $image): ?>
+				<a href="#" id="red_cross" onclick="deleteImg(<?= $image->getId_image()?>)">X </a>
 				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
 			<?php endforeach; ?>
 		</div>
@@ -22,6 +23,8 @@
                 </div>
                 <canvas class="snap_view" id="snap_canvas"></canvas>
 			</div>
+		</div>
+		<div class="button_box">
 			<div class="buttons_list">
                 <button  type="button" disabled class="snap_button" id="snap_button" onclick="checkButton()">Snap it!</button>
                 <button class="import_button" id="import_button">Import a picture</button>

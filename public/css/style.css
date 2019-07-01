@@ -170,6 +170,15 @@ button:hover {
 	padding: 5px;
 }
 
+#red_cross {
+	width: 40px;
+  height: 40px;
+  border-radius: 20px;
+	z-index: 10;
+	background-color: red;
+	padding: 8px;
+}
+
 /* PREFERENCES */
 
 .settings {
@@ -252,38 +261,16 @@ button:hover {
 	width: auto;
 }
 
-/* MONTAGE */
+/* BUTTONS */
 
-.montage {
-	margin-top: 10px;
+.button_box {
 	float: right;
   width: 74%;
 	background-color: #eb7d7d;
-	height: 790px;
+	height: 100px;
 	overflow: auto;
 }
 
-@media screen and (max-width: 700px) {
-	.sidebar {
-	  	width: 0;
-	  	height: 0;
-	  	margin: 0;
-	}
-	.montage {
-		width: 100%;
-	}
-	.filter {
-		width: 100%;
-	}
-}
-
-/* CAMERA & CANVAS & FILTER */
-
-.inside {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-}
 .buttons_list {
 	position: relative;
 	display: inline-block;
@@ -301,6 +288,43 @@ button:hover {
 	float: right;
 	width: 150px;
 	font-size: 12px;
+}
+
+/* MONTAGE */
+
+.montage {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: right;
+  width: 74%;
+	background-color: #eb7d7d;
+	height: 680px;
+	overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+	.sidebar {
+	  	width: 0;
+	  	height: 0;
+	  	margin: 0;
+	}
+	.montage {
+		width: 100%;
+	}
+	.filter {
+		width: 100%;
+	}
+	.button_box {
+		width: 100%;
+	}
+}
+
+/* CAMERA & CANVAS & FILTER */
+
+.inside {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .camera_view {

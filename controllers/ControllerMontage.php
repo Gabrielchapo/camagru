@@ -12,7 +12,15 @@ class ControllerMontage
             throw new Exception('Page introuvable');
         else if ($_GET['submit'] === 'download')
             $this->download_image();
+        else if ($_GET['submit'] === 'delete')
+            $this->delete_img();
         $this->images();
+    }
+
+    private function delete_img()
+    {
+        $this->_imageManager = new ImageManager;
+        $this->_imageManager->deleteImage($_POST["id_image"]);
     }
 
     private function download_image()
