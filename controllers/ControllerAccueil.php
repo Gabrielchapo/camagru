@@ -25,16 +25,6 @@ class ControllerAccueil
                 $this->_likeManager = new LikeManager;
                 $this->_likeManager->disLike($_POST["id_image"], $_POST["id_author"]);
             }
-            else if ($_GET["submit"] === "comment")
-            {
-                $this->_commentManager = new CommentManager;
-                date_default_timezone_set('Europe/Paris');
-                $date_creation = date("Y-m-d H:i:s");
-                $date_creation = str_replace(' ', ':', $date_creation);
-
-                $this->_commentManager->addComment($date_creation, $_POST["comment"], $_GET["id_picture"]);
-                $this->images($page);
-            }
             else {
                 if (!$_GET["nb"])
                     $page = 0;
@@ -46,6 +36,15 @@ class ControllerAccueil
                     $page -= 1;
                 else if ($_GET['submit'] === 'plus')
                     $page += 1;
+                else if ($_GET["submit"] === "comment")
+                {
+                    $this->_commentManager = new CommentManager;
+                    date_default_timezone_set('Europe/Paris');
+                    $date_creation = date("Y-m-d H:i:s");
+                    $date_creation = str_replace(' ', ':', $date_creation);
+        
+                    $this->_commentManager->addComment($date_creation, $_POST["comment"], $_GET["id_picture"]);
+                }
                 $this->images($page);
             }
         }

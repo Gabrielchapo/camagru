@@ -14,6 +14,8 @@ class ControllerRegister
 			throw new Exception('Page introuvable');
 		elseif ($_GET['submit'] === 'ok')
 			$this->checkForm();
+		elseif ($_GET['submit'] === 'confirm')
+			$this->emailConfirmed();
         else 
 			$this->registerView();
     }
@@ -91,38 +93,42 @@ class ControllerRegister
 			session_start();
 			$_SESSION['login'] = $login;
 			$_SESSION['id'] = $id;
+
+			$this->sendConfirmationMail($email);
+
 			require_once('controllers/ControllerAccueil.php');
             $this->_ctrl = new ControllerAccueil(URL."Accueil");
 		}
 	}
 
-	private function sendConfirmationMail($mail)
+	private function sendConfirmationMail($email)
 	{
-		//destinataire
 		$to  = $email;
 
-		// Sujet
 		$subject = 'Confirmation mail';
 
-		// message
 		$message = '
 					<html>
 						<head>
 							<title>Confirm your account</title>
 						</head>
 						<body>
-							<a href="<?= URL ?>?url=register&submit=confirm">Confirm your account Here</a>
+							<a href="'. URL .'?url=register&submit=confirm">Confirm your account Here</a>
 						</body>
 					</html>';
 
-		// Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
 		$headers[] = 'MIME-Version: 1.0';
 		$headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-		// Envoi
 		mail($to, $subject, $message, implode("\r\n", $headers));
 	}
 
+	private function emailConfirmed()
+	{
+		require_once('controllers/ControllerAccueil.php');
+        $this->_ctrl = new ControllerAccueil(URL."Accueil");
+	}
+	
     private function registerView()
     {
 		$this->_view = new View('Register');
