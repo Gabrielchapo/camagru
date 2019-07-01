@@ -20,6 +20,9 @@
 						echo "<a>".$comment->getContent()."</a></br></br>";
 					}
 				endforeach;?>
+				<form method="POST" action="<?= URL ?>?url=Accueil&submit=comment&id_picture=<?= $image->getId_image() ?>" onsubmit="myFunction()">
+					<input placeholder="Write your comment" type="text" name="comment">
+				</form>
 				</div>
 
 				<?php
