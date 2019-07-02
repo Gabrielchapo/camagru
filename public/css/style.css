@@ -161,7 +161,7 @@ button:hover {
 	float: left;
 	width: 25%;
 	background-color: #eb7d7d;
-	height: 1000px;
+	height: 690px;
 	overflow: auto;
 }
 
@@ -263,14 +263,6 @@ button:hover {
 
 /* BUTTONS */
 
-.button_box {
-	float: right;
-  width: 74%;
-	background-color: #eb7d7d;
-	height: 100px;
-	overflow: auto;
-}
-
 .buttons_list {
 	position: relative;
 	display: inline-block;
@@ -298,7 +290,7 @@ button:hover {
 	float: right;
   width: 74%;
 	background-color: #eb7d7d;
-	height: 680px;
+	height: 480px;
 	overflow: auto;
 }
 
@@ -323,33 +315,48 @@ button:hover {
 
 .inside {
 	position: relative;
-	margin-left: auto;
-	margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    height: 320px;
+    width: 432px;
+    border:1px solid rgba(255, 255, 255, 0.5);
+    background: linear-gradient(180deg, #000000 , #04011a 90%);
+    padding: 15px;
 }
 
+.camera_view, .snap_view {
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+}
 .camera_view {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100%;
+	width: 430px;
+height: 320px;
 }
 .filter_view {
 	position: absolute;
 	top: 0px;
-	left: 0px;
-	width: 100%;
+	left: 130px;
+	width: 180px;
+	height: 180px;
 }
 .filter_img
 {
+	position: absolute;
 	z-index: 10;
-	width: 100%;
-	height: 180px;
+	top: 0px;
+	width: auto;
+height: 180px;
 }
 .snap_view {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100%;
+	width: 430px;
+	height: 320px;
 }
 
 #imgLoader {
@@ -359,5 +366,6 @@ button:hover {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100%;
+	width: 430px;
+	height: 320px;
 }

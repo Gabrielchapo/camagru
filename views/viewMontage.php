@@ -23,8 +23,6 @@
                 </div>
                 <canvas class="snap_view" id="snap_canvas"></canvas>
 			</div>
-		</div>
-		<div class="button_box">
 			<div class="buttons_list">
                 <button  type="button" disabled class="snap_button" id="snap_button" onclick="checkButton()">Snap it!</button>
                 <button class="import_button" id="import_button">Import a picture</button>

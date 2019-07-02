@@ -43,24 +43,22 @@ function checkButton()
 
 function takePicture()
 {
-  // webcam picture
-  canvas.width = width;
-  canvas.height = height;
+    // webcam picture
+    canvas.width = width;
+    canvas.height = height;
 
-  if (video)
-  {
-    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-  }
-  if (canvas_imported)
-  {
-    canvas.getContext('2d').drawImage(canvas_imported, 0, 0, width, height);
-  }
+    if (video)
+    {
+      canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+    }
+    if (canvas_imported)
+    {
+      canvas.getContext('2d').drawImage(canvas_imported, 0, 0, width, height);
+    }
 
 
-  // + filter superposition for preview
-  canvas.getContext('2d').drawImage(filter, 130, 0, 180, 180);
-  var filterName = document.getElementsByClassName("filter_img")[0].id + ".png";
-
+    // + filter superposition for preview
+    canvas.getContext('2d').drawImage(filter, 130, 0, 180, 180);
 } 
 
 function savePicture()

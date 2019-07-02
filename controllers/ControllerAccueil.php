@@ -43,7 +43,7 @@ class ControllerAccueil
                     $date_creation = date("Y-m-d H:i:s");
                     $date_creation = str_replace(' ', ':', $date_creation);
         
-                    $this->_commentManager->addComment($date_creation, $_POST["comment"], $_GET["id_picture"]);
+                    $this->_commentManager->addComment($date_creation, htmlentities($_POST["comment"]), $_GET["id_picture"]);
                 }
                 $this->images($page);
             }
