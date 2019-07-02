@@ -54,4 +54,13 @@ class ImageManager extends Model
         $req = $this->getBdd()->prepare($sql);
         $req->execute(['id' => $id]);
     }
+
+    public function getIdAuthor($id_image)
+    {
+        $sql = "SELECT id_author FROM images WHERE id_image = :id_image";
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id_image' => $id_image]);
+        $result = $req->fetch();
+        return $result["id_author"];
+    }
 }

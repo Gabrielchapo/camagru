@@ -4,17 +4,33 @@ require_once('views/View.php');
 class ControllerMontage
 {
     private $_imageManager;
+    private $_memberManager;
     private $_view;
 
     public function __construct($url)
     {
         if (isset($url) && count($url) > 1)
             throw new Exception('Page introuvable');
-        else if ($_GET['submit'] === 'download')
-            $this->download_image();
-        else if ($_GET['submit'] === 'delete')
-            $this->delete_img();
-        $this->images();
+        else
+        {
+            $this->_memberManager = new MemberManager;
+		    if ($this->_memberManager->getMemberconfirmation())
+            {
+                if ($_GET['submit'] === 'download')
+                    $this->download_image();
+                else if ($_GET['submit'] === 'delete')
+                    $this->delete_img();
+                $this->images();
+            }
+            else
+                $this->ErrorNeedToConfirmEmail();
+        }
+    }
+
+    private function ErrorNeedToConfirmEmail()
+    {
+        $this->_view = new View('Email');
+        $this->_view->generate(array());
     }
 
     private function delete_img()

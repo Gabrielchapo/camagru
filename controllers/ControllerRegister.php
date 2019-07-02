@@ -94,14 +94,14 @@ class ControllerRegister
 			$_SESSION['login'] = $login;
 			$_SESSION['id'] = $id;
 
-			$this->sendConfirmationMail($email);
+			$this->sendConfirmationMail($email, hash('whirlpool', $login));
 
 			require_once('controllers/ControllerAccueil.php');
             $this->_ctrl = new ControllerAccueil(URL."Accueil");
 		}
 	}
 
-	private function sendConfirmationMail($email)
+	private function sendConfirmationMail($email, $hash_login)
 	{
 		$to  = $email;
 
@@ -113,7 +113,7 @@ class ControllerRegister
 							<title>Confirm your account</title>
 						</head>
 						<body>
-							<a href="'. URL .'?url=register&submit=confirm">Confirm your account Here</a>
+							<a href="'. URL .'?url=register&submit=confirm&login='.$hash_login.'">Confirm your account Here</a>
 						</body>
 					</html>';
 
@@ -126,6 +126,16 @@ class ControllerRegister
 	private function emailConfirmed()
 	{
 		require_once('controllers/ControllerAccueil.php');
+		$this->_memberManager = new MemberManager;
+		$members = $this->_memberManager->getAllMembers();
+
+		foreach($members as $member):
+			if (hash('whirlpool', $member->getLogin()) === $_GET['login'])
+			{
+				$this->_memberManager->confirmMembership($member->getLogin());
+			}
+		endforeach;
+
         $this->_ctrl = new ControllerAccueil(URL."Accueil");
 	}
 	

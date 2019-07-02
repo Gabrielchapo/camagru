@@ -71,4 +71,33 @@ class MemberManager extends Model
         $req = $this->getBdd()->prepare($sql);
         $req->execute(['id' => $id]);
     }
+
+    public function confirmMembership($login)
+    {
+        $sql = 'UPDATE member SET confirmEmail = 1 WHERE login = :login';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['login' => $login]);
+    }
+
+    public function getMemberconfirmation()
+    {
+        session_start();
+        $sql = 'SELECT confirmEmail FROM member WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $_SESSION['id'],]);
+        $result = $req->fetch();
+        if ($result["confirmEmail"] == 1)
+            return true;
+        else
+            return false;
+    }
+
+    public function getMemberById($id)
+    {
+        $sql = 'SELECT email, preference FROM member where id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $id]);
+        $result = $req->fetch();
+        return $result;
+    }
 }
