@@ -2,7 +2,8 @@
 <div class="row">
 	<div class="settings">
 		<a>Preferences</a>
-		
+		<button onclick="desactivate()">Desactivate notifications</button>
+		<button onclick="activate()">activate notifications</button>
 	</div>
 	<div class="settings">
 		<a>Modify Account</a>
@@ -30,3 +31,4 @@
 		</form>
 	</div>
 </div>
+<script src="<?= URL ?>public/js/Profil.js"></script>

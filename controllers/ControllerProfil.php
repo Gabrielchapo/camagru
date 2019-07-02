@@ -23,6 +23,16 @@ class ControllerProfil
 			$this->_view = new View('Accueil');
 			$this->_view->generate(array('images' => $images));
         }
+        elseif ($_GET['submit'] === 'activate')
+        {
+            $this->_memberManager = new MemberManager;
+            $this->_memberManager->activateComment();
+        }
+        elseif ($_GET['submit'] === 'desactivate')
+        {
+            $this->_memberManager = new MemberManager;
+            $this->_memberManager->desactivateComment();
+        }
         else
         {
             $this->_view = new View('Profil');

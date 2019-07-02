@@ -100,4 +100,19 @@ class MemberManager extends Model
         $result = $req->fetch();
         return $result;
     }
+
+    public function desactivateComment()
+    {
+        session_start();
+        $sql = 'UPDATE member SET preference = 1 WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $_SESSION['id'],]);
+    }
+    public function activateComment()
+    {
+        session_start();
+        $sql = 'UPDATE member SET preference = null WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $_SESSION['id'],]);
+    }
 }
