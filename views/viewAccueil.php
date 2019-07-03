@@ -19,10 +19,12 @@
 						echo "<a><b>".$comment->getDate_comment()." - </b></a>";
 						echo "<a>".$comment->getContent()."</a></br></br>";
 					}
-				endforeach;?>
+				endforeach;
+				if ($_SESSION['login']) {?>
 				<form method="POST" action="<?= URL ?>?url=Accueil&submit=comment&id_picture=<?= $image->getId_image() ?>&nb=<?= $page ?>">
 					<input placeholder="Write your comment" type="text" name="comment">
 				</form>
+				<?php } ?>
 				</div>
 
 				<?php

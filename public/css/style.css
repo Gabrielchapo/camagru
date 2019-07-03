@@ -30,7 +30,7 @@ body {
 /* NAVBAR */
 
 .navbar {
-	z-index: 2;
+	z-index: 20;
 	overflow: hidden;
 	background-color: #333;
 	position: sticky;
@@ -265,21 +265,17 @@ button:hover {
 
 .buttons_list {
 	position: relative;
-	display: inline-block;
-	height: 40px;
-	width: 430px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .snap_button {
 	float: left;
-	width: 100px;
 }
 .retry_button {
 	float: left;
 }
 .import_button {
 	float: right;
-	width: 150px;
-	font-size: 12px;
 }
 
 /* MONTAGE */
@@ -338,8 +334,8 @@ height: 320px;
 }
 .filter_view {
 	position: absolute;
-	top: 0px;
-	left: 130px;
+	top: 130px;
+	left: 0px;
 	width: 180px;
 	height: 180px;
 }

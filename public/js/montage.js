@@ -58,7 +58,7 @@ function takePicture()
 
 
     // + filter superposition for preview
-    canvas.getContext('2d').drawImage(filter, 130, 0, 180, 180);
+    canvas.getContext('2d').drawImage(filter, 0, 130, 180, 180);
 } 
 
 function savePicture()
@@ -150,4 +150,38 @@ function deleteImg(id_image)
   var canvasData = canvas.toDataURL('image/png');
   req.send('id_image=' + id_image);
   retry();
+}
+
+//import a file
+
+document.getElementById('import_button').onclick = function() {
+  document.getElementById('imgLoader').click();
+};
+
+var fileinput = document.getElementById('imgLoader').addEventListener('change', importPicture, false);
+
+function importPicture()
+{
+  var canvas = document.querySelector('#imported');
+  var context = canvas.getContext("2d");
+  var img = new Image();
+  var file = this.files[0];
+  var reader = new FileReader();
+  if (file)
+  {
+      reader.readAsDataURL(file);
+      reader.onload = function(evt)
+  {
+      if (evt.target.readyState == FileReader.DONE)
+      {
+          img.onload = function()
+          {
+              canvas.width = img.width;
+              canvas.height = img.height;
+              context.drawImage(img, 0, 0);
+          }
+          img.src = evt.target.result;
+      }
+  }
+  }
 }
