@@ -1,12 +1,12 @@
 <?php $this->_t = 'Profil';?>
 <div class="row">
-	<div class="settings">
-		<a>Preferences</a>
+	<div class="container">
+		<h1>Preferences</h1>
 		<button onclick="desactivate()">Desactivate notifications</button>
 		<button onclick="activate()">activate notifications</button>
-	</div>
-	<div class="settings">
-		<a>Modify Account</a>
+	</div><br><br>
+	<div class="container">
+		<h1>Modify Account</h1>
 		<form method="POST" action="<?= URL ?>?url=Profil&submit=modify">
 			<div class="container">
 				<input type="text" placeholder="Enter New Login" name="login">

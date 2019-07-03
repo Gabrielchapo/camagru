@@ -1,13 +1,10 @@
-.row img {
-	width: 100%;
-}
-
 * {
 	box-sizing: border-box;
 }
 
 body {
 	font-family: 'Courier New', Courier, monospace;
+	margin: 0;
 }
 
 /* NAVBAR */
@@ -21,6 +18,7 @@ body {
 	position: sticky;
 	position: -webkit-sticky;
 	top: 0;
+	margin-bottom: 30px;
 }
 
 .navbar a {
@@ -30,6 +28,10 @@ body {
 	text-align: center;
 	padding: 14px 20px;
 	text-decoration: none;
+}
+
+.navbar a:hover {
+	font-weight: bold;
 }
 
 
@@ -42,21 +44,26 @@ body {
 
 /* FOOTER */
 footer {
-	z-index: 20;
-	width: 100%;
-	height: 100px;
-	background-color: rgb(255, 255, 255);
-	padding-top: 20px;;
 	text-align: center;
+	z-index: 20;
+	height: 80px;
+	overflow: hidden;
+	background-color: rgb(255, 255, 255);
 	position: sticky;
+	position: -webkit-sticky;
 	bottom: 0;
+	margin-top: 30px;
 }
 
 /* GALLERY */
 .row {
 	margin: 0 auto;
 }
-  
+
+.row img {
+	width: 100%;
+}
+
 .column {
     float: left;
     width: 24%;
@@ -136,14 +143,6 @@ button:hover {
 	padding: 8px;
 }
 
-/* PREFERENCES */
-
-.settings {
-	padding: 10px;
-	margin: 10px;
-	background: #eb7d7d;
-}
-
 /* PAGINATION */
 
 .myButton {
@@ -151,10 +150,9 @@ button:hover {
 	border:1px solid #000000;
 	display:inline-block;
 	cursor:pointer;
+	padding: 15px;
 	color:#000000;
 	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #a5a5a5;
 }
@@ -189,6 +187,9 @@ button:hover {
 	height: auto;
 	float: left;
 }
+.likes img:hover {
+	transform: scale(1.5);
+}
 
 .likes a {
 	float: left;
@@ -197,7 +198,6 @@ button:hover {
 /* FILTER */
 
 .filter {
-	float: right;
   width: 74%;
 	height: 200px;
 	overflow: auto;
@@ -236,7 +236,6 @@ button:hover {
 .montage {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	float: right;
   width: 74%;
 	height: 480px;
 	overflow: auto;

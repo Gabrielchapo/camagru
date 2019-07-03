@@ -119,7 +119,7 @@ class MemberManager extends Model
     public function activateComment()
     {
         session_start();
-        $sql = 'UPDATE member SET preference = null WHERE id_member = :id';
+        $sql = 'UPDATE member SET preference = 0 WHERE id_member = :id';
         $req = $this->getBdd()->prepare($sql);
         $req->execute(['id' => $_SESSION['id'],]);
     }

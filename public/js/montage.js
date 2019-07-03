@@ -21,6 +21,7 @@ if (navigator.mediaDevices.getUserMedia)
 
 function checkButton()
 {
+  console.log('eheheh');
     var mode = document.getElementsByClassName("snap_button")[0].id;
     if (mode == 'snap_button')
     {

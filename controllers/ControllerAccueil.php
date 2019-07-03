@@ -57,7 +57,7 @@ class ControllerAccueil
         //get auhor information and send notification
         $id_author = $this->_imageManager->getIdAuthor($_GET["id_picture"]);
         $member = $this->_memberManager->getMemberById($id_author);
-        if ($member["preference"] === null)
+        if ($member["preference"] == 0)
             $this->sendNotificatioEmail($member['email'], $_POST["comment"]);
 
         //add the comment
