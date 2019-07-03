@@ -8,20 +8,17 @@
 		<title><?= $t ?></title>
 	</head>
 	<body>
-		<div class="header">
-			<h1>InstaGab</h1>
-			<p> Share your best pics. </p>
-		</div>
 		<div class="navbar">
+		<h1>InstaGab</h1>
 			<a href="<?= URL ?>" class="active">Home</a>
 			<?php
 				session_start();
 				if ($_SESSION['login']) {?>
-				<a href="<?= URL ?>?url=Accueil&submit=logout" class="right">Logout</a>
-				<a href="<?= URL ?>?url=Profil" class="right">Profil</a>
-				<a href="<?= URL ?>?url=Montage" class="right">Montage</a>
+				<a href="<?= URL ?>?url=Accueil&submit=logout">Logout</a>
+				<a href="<?= URL ?>?url=Profil">Profil</a>
+				<a href="<?= URL ?>?url=Montage">Montage</a>
 			<?php } else { ?>
-				<a href="<?= URL ?>?url=login" class="right">Login</a>
+				<a href="<?= URL ?>?url=login">Login</a>
 			<?php } ?>
 		</div>
 		

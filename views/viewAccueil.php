@@ -10,46 +10,55 @@
 		{?>
 			<div class="column">
 
+				<!-- IMAGE SECTION -->
 				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
 				
+				<!-- LIKES SECTION -->
+				<?php
+					$nb_likes = 0;
+					$liked = false;
+					foreach($likes as $like): 
+						if ($like->getId_image() == $image->getId_image())
+						{
+							$nb_likes += 1;
+							if ($like->getId_author() === $_SESSION["id"])
+							{$liked = true;}
+						}
+					endforeach;
+					?>
+					<div class="likes">
+						<?php if ($liked == false) { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/dislike.png"> <?php } 
+						else { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/like.png"> <?php } ?>
+						<a id="nb_likes<?= $image->getId_image() ?>"> <?= $nb_likes ?> </a>
+						<a>&nbsp;Like(s)</a>
+					</div>
+
+
+				<!-- COMMENTS SECTION -->
+				<?php if ($_SESSION['login']) 
+					{?>
+					<form method="POST" action="<?= URL ?>?url=Accueil&submit=comment&id_picture=<?= $image->getId_image() ?>&nb=<?= $page ?>">
+						<input placeholder="Type your comment here" type="text" name="comment">
+					</form>
+				<?php } ?>
 				<div class="comment"> <?php
+
 				foreach($comments as $comment):
 					if ($image->getId_image() == $comment->getId_picture())
 					{
 						echo "<a><b>".$comment->getDate_comment()." - </b></a>";
 						echo "<a>".$comment->getContent()."</a></br></br>";
 					}
-				endforeach;
-				if ($_SESSION['login']) {?>
-				<form method="POST" action="<?= URL ?>?url=Accueil&submit=comment&id_picture=<?= $image->getId_image() ?>&nb=<?= $page ?>">
-					<input placeholder="Write your comment" type="text" name="comment">
-				</form>
-				<?php } ?>
+				endforeach;?>
 				</div>
 
-				<?php
-				$nb_likes = 0;
-				$liked = false;
-				foreach($likes as $like): 
-					if ($like->getId_image() == $image->getId_image())
-					{
-						$nb_likes += 1;
-						if ($like->getId_author() === $_SESSION["id"])
-						{$liked = true;}
-					}
-				endforeach;
-				?>
-				<div class="likes">
-					<?php if ($liked == false) { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/dislike.png"> <?php } 
-					else { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/like.png"> <?php } ?>
-					<a id="nb_likes<?= $image->getId_image() ?>"> <?= $nb_likes ?> </a>
-					<a>&nbsp;Like(s)</a>
-				</div>
 			</div>
 		<?php
 		}
 	endforeach; ?>
 </div>
+
+<!-- PAGINATION -->
 <div class="row center">
 	<?php 
 	if ($page > 0)
