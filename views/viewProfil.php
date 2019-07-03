@@ -2,8 +2,7 @@
 <div class="row">
 	<div class="container">
 		<h1>Preferences</h1>
-		<button onclick="desactivate()">Desactivate notifications</button>
-		<button onclick="activate()">activate notifications</button>
+		<button class="preference_button" onclick="checkPreferenceButton()">Desactivate notifications</button>
 	</div><br><br>
 	<div class="container">
 		<h1>Modify Account</h1>

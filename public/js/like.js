@@ -23,7 +23,7 @@ function like(picture_id, user_id)
 		//case : to like
 		if (like_logo.src.indexOf("/like") == -1)
 		{
-			like_logo.src = '/public/like.png';
+			like_logo.src = '/public/icons/like.png';
 
 			likes += 1;
 			likesElement.innerHTML = likes; 
@@ -32,7 +32,7 @@ function like(picture_id, user_id)
 		//case : to unlike
 		else
 		{
-			like_logo.src = '/public/dislike.png';
+			like_logo.src = '/public/icons/dislike.png';
 
 			likes -= 1;
 			likesElement.innerHTML = likes; 

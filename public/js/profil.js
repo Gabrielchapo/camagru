@@ -1,11 +1,17 @@
-function activate()
+function checkPreferenceButton()
 {
-    sendRequest('activate');
-}
+    var mode = document.getElementsByClassName("preference_button")[0].innerHTML;
 
-function desactivate()
-{
-    sendRequest('desactivate');
+    //To desactivate
+    if (mode === 'Desactivate notifications') {
+        sendRequest('desactivate');
+        document.getElementsByClassName("preference_button")[0].innerHTML = 'Activate notifications';
+    }
+    //To activate
+    else {
+        sendRequest('activate');
+        document.getElementsByClassName("preference_button")[0].innerHTML = 'Desactivate notifications';
+    }
 }
 
 function sendRequest(param)

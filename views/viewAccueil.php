@@ -27,8 +27,8 @@
 						endforeach;
 						?>
 						<div class="likes">
-							<?php if ($liked == false) { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/dislike.png"> <?php } 
-							else { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/like.png"> <?php } ?>
+							<?php if ($liked == false) { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/icons/dislike.png"> <?php } 
+							else { ?> <img id="like_logo<?= $image->getId_image() ?>" onclick="like(<?= $image->getId_image() ?>, <?= $_SESSION['id'] ?>)" src="../public/icons/like.png"> <?php } ?>
 							<a id="nb_likes<?= $image->getId_image() ?>"> <?= $nb_likes ?> </a>
 							<a>&nbsp;Like(s)</a>
 						</div>
@@ -72,4 +72,4 @@
 			?><a href="<?= URL ?>?url=Accueil&submit=plus&nb=<?= $page ?>" class="myButton">></a><?php
 		}?>
 	</div>
-<script src="<?= URL ?>public/js/Accueil.js"></script>
+<script src="<?= URL ?>public/js/like.js"></script>
