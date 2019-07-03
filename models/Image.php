@@ -4,7 +4,7 @@ class Image
 {
     private $_id_image;
     private $_date_creation;
-    private $_adress;
+    private $_address;
     private $_id_author;
 
     public function __construct(array $data)
@@ -35,9 +35,9 @@ class Image
     {
         $this->_date_creation = $date_creation;
     }
-    public function setAdress($adress)
+    public function setaddress($address)
     {
-        $this->_adress= $adress;
+        $this->_address= $address;
 	}
 	public function setId_author($id_author)
     {
@@ -54,9 +54,9 @@ class Image
     {
         return $this->_date_creation;
     }
-    public function getAdress()
+    public function getaddress()
     {
-        return $this->_adress;
+        return $this->_address;
 	}
 	public function getId_author()
     {

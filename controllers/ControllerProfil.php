@@ -62,7 +62,7 @@ class ControllerProfil
         {
             $email = htmlentities($_POST['email']);
             if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-                $errorMsg['email'] = "Incorrect email adress";
+                $errorMsg['email'] = "Incorrect email address";
             else
             {
                 $this->_memberManager->modifyEmail($email);

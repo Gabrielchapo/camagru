@@ -11,7 +11,7 @@
 			<div class="column">
 
 				<!-- IMAGE SECTION -->
-				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
+				<img src="<?= "../public/pictures/".$image->getaddress() ?>">
 				
 				<!-- LIKES SECTION -->
 				<?php

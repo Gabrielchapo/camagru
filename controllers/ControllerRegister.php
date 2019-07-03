@@ -40,11 +40,11 @@ class ControllerRegister
 			$errorMsg['login'] = "Login is too long (max 20 char)";
 		}
 
-		//check email adress
+		//check email address
 		if (!filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
 			$error = true;
-			$errorMsg['email'] = "Incorrect email adress";
+			$errorMsg['email'] = "Incorrect email address";
 		}
 		if (strlen($email >= 100))
 		{

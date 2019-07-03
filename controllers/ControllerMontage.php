@@ -49,14 +49,14 @@ class ControllerMontage
         $img = str_replace(' ', '+', $img);
         $dest = base64_decode($img);
 
-        $adress = $this->_imageManager->getLast_id_plus_one().".png";
+        $address = $this->_imageManager->getLast_id_plus_one().".png";
         $id_author = $_SESSION["id"];
         date_default_timezone_set('Europe/Paris');
         $date_creation = date("Y-m-d H:i:s");
         $date_creation = str_replace(' ', ':', $date_creation);
 
-        file_put_contents("public/pictures/".$adress, $dest);
-        $this->_imageManager->addImages($date_creation, $adress, $id_author);
+        file_put_contents("public/pictures/".$address, $dest);
+        $this->_imageManager->addImages($date_creation, $address, $id_author);
     }
 
     private function images()

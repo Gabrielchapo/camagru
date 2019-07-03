@@ -28,13 +28,13 @@ class ImageManager extends Model
         return $var;
     }
 
-    public function addImages($date_creation, $adress, $id_author)
+    public function addImages($date_creation, $address, $id_author)
     {
-        $sql = 'INSERT INTO images VALUES (id_image, :date_creation, :adress, :id_author)';
+        $sql = 'INSERT INTO images VALUES (id_image, :date_creation, :address, :id_author)';
         $req = $this->getBdd()->prepare($sql);
         $req->execute([
             'date_creation' => $date_creation,
-            'adress' => $adress,
+            'address' => $address,
             'id_author' => $id_author,
         ]);
     }

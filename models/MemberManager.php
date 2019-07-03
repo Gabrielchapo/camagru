@@ -26,7 +26,7 @@ class MemberManager extends Model
 
     public function addMember($login, $email, $password)
     {
-        $sql = 'INSERT INTO member VALUES (id_member, :login, :password, :email, confirmEmail, preference)';
+        $sql = 'INSERT INTO member VALUES (id_member, :login, :password, :email, confirmEmail, preference, token)';
         $req = $this->getBdd()->prepare($sql);
         $req->execute([
             'login' => $login,

@@ -5,7 +5,7 @@
 
 			foreach($images as $image): ?>
 				<a href="#" id="red_cross" onclick="deleteImg(<?= $image->getId_image()?>)">X </a>
-				<img src="<?= "../public/pictures/".$image->getAdress() ?>">
+				<img src="<?= "../public/pictures/".$image->getaddress() ?>">
 			<?php endforeach; ?>
 		</div>
 
