@@ -15,6 +15,14 @@ class MemberManager extends Model
         $result = $req->fetch();
         return $result;
     }
+    public function getMemberEmail($login)
+    {
+        $sql = 'SELECT email FROM member where login = :login';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['login' => $login]);
+        $result = $req->fetch();
+        return $result['email'];
+    }
 
     public function addMember($login, $email, $password)
     {
@@ -114,5 +122,37 @@ class MemberManager extends Model
         $sql = 'UPDATE member SET preference = null WHERE id_member = :id';
         $req = $this->getBdd()->prepare($sql);
         $req->execute(['id' => $_SESSION['id'],]);
+    }
+
+    public function addToken($token, $login)
+    {
+        $sql = 'UPDATE member SET token = :token WHERE login = :login';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute([
+            'token' => $token,
+            'login' => $login,
+            ]);
+    }
+
+    public function checkToken($token)
+    {
+        $sql = 'SELECT id_member FROM member WHERE token = :token';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['token' => $token]);
+        $result = $req->fetch();
+        if ($result["id_member"])
+            return $result["id_member"];
+        else
+            return false;
+    }
+
+    public function resetPassword($id_member, $password)
+    {
+        $sql = 'UPDATE member SET password = :new_password WHERE id_member = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute([
+            'new_password' => hash('whirlpool', $password),
+            'id' => $id_member,
+            ]);
     }
 }
