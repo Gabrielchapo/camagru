@@ -15,6 +15,7 @@
 
 		<div class="filter">
 			<img src="../public/filters/42.png" onclick="selectFilter('42.png')"?>
+			<img src="../public/filters/gab.png" onclick="selectFilter('gab.png')"?>
 			<img src="../public/filters/apple.png"onclick="selectFilter('apple.png')"?>
 		</div>
 
@@ -23,7 +24,7 @@
                 <video class="camera_view" id="video" autoplay></video>
                 <canvas class="imported" id="imported"></canvas>
                 <div class="filter_view">
-                    <img class="filter_img" id="filter_image" src="">
+                    <img class="filter_img" id="filter_image" src="" alt="">
                 </div>
                 <canvas class="snap_view" id="snap_canvas"></canvas>
 			</div>
