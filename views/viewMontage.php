@@ -4,8 +4,12 @@
 			<?php $this->_t = 'Montage';
 
 			foreach($images as $image): ?>
-				<a href="#" id="red_cross" onclick="deleteImg(<?= $image->getId_image()?>)">X </a>
-				<img src="<?= "../public/pictures/".$image->getaddress() ?>">
+				<div class="parent">
+					<img src="<?= "../public/pictures/".$image->getaddress() ?>">
+					<div class="child">
+						<a href="#" id="cross" onclick="deleteImg(<?= $image->getId_image()?>)">X </a>
+					</div>
+				</div>
 			<?php endforeach; ?>
 		</div>
 

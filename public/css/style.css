@@ -57,7 +57,8 @@ footer {
 
 /* GALLERY */
 .row {
-	margin: 0 auto;
+	display: table;
+	width: 100%
 }
 
 .row img {
@@ -66,20 +67,20 @@ footer {
 
 .column {
     float: left;
-    width: 24%;
-    margin: 5px;
+    width: 25%;
+		padding: 5px;
 }
 
 /* RESPONSIVE */
 @media screen and (max-width: 1200px) {
 	.column {
-	  width: 48%;
+	  width: 50%;
 	}
 }
   
 @media screen and (max-width: 600px) {
 	.column {
-	  width: 96%;
+	  width: 100%;
 	}
 }
 
@@ -133,14 +134,24 @@ button:hover {
 	width: 100%;
 	padding: 5px;
 }
+.parent {
+	width: 100%;
+	position: relative;
+}
+.child {
+	position: absolute;
+	top: 14px;
+	left: 5px;
+}
 
-#red_cross {
-	width: 40px;
-  height: 40px;
-  border-radius: 20px;
-	z-index: 10;
-	background-color: red;
-	padding: 8px;
+#cross {
+	text-decoration: none;
+	border-radius: 20px;
+	border:1px solid #000000;
+	background-color:#d8d8d880;
+	z-index: 12;
+	padding: 8px 12px 8px 12px;
+	color: #000000;
 }
 
 /* PAGINATION */
