@@ -11,7 +11,7 @@
 				<div class="column">
 
 					<!-- IMAGE SECTION -->
-					<img src="<?= "../public/pictures/".$image->getaddress() ?>">
+					<img src="<?= "../public/pictures/".$image->getAddress() ?>">
 					
 					<!-- LIKES SECTION -->
 					<?php
@@ -66,7 +66,12 @@
 		{
 			?><a href="<?= URL ?>?url=Accueil&submit=malus&nb=<?= $page ?>" class="myButton"><</a><?php
 		}
-		?><a class="myButton"><?= $page + 1 ?> / <?= ceil($nb_images / 8) ?></a><?
+		?><a class="myButton"><?= $page + 1 ?> / 
+		<?php $tot = ceil($nb_images / 8);
+		if ($tot == 0)
+		{echo '1';}
+		else {echo $tot;} ?>
+		</a><?
 		if ($page + 1 < ceil($nb_images / 8))
 		{
 			?><a href="<?= URL ?>?url=Accueil&submit=plus&nb=<?= $page ?>" class="myButton">></a><?php

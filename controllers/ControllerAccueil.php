@@ -93,9 +93,12 @@ class ControllerAccueil
         $this->_commentManager = new CommentManager;
 
         $likes = $this->_likeManager->getAllLikes();
+
         $comments = $this->_commentManager->getAllComments();
+
         $images = $this->_imageManager->getAllImages();
         $nb_images = $this->_imageManager->getNbImages();
+        
         $this->_view = new View('Accueil');
         $this->_view->generate(array(
             'images' => $images,

@@ -17,11 +17,15 @@ class ControllerProfil
         }
         elseif ($_GET['submit'] === 'delete')
         {
-            $this->deleteMember();
+            session_start();
+
             $this->_imageManager = new ImageManager;
-			$images = $this->_imageManager->getAllImages();
-			$this->_view = new View('Accueil');
-			$this->_view->generate(array('images' => $images));
+            $this->_imageManager->deleteImagesMember($_SESSION['id']);
+
+            $this->deleteMember();
+
+			require_once('controllers/ControllerAccueil.php');
+            $this->_ctrl = new ControllerAccueil(URL."Accueil");
         }
         elseif ($_GET['submit'] === 'activate')
         {
@@ -44,7 +48,7 @@ class ControllerProfil
     {
         $this->_memberManager = new MemberManager;
         //Check login
-        if (isset($_POST['login']))
+        if (strlen($_POST['login']) > 0)
         {
             $login = htmlentities($_POST['login']);
             if (!preg_match('/^[a-z\d_0-9]{8,20}$/i', $login))
@@ -58,7 +62,7 @@ class ControllerProfil
         }
 
         //Check email
-        if (isset($_POST['email']) != "")
+        if (strlen($_POST['email']) > 0)
         {
             $email = htmlentities($_POST['email']);
             if (!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -71,7 +75,7 @@ class ControllerProfil
         }
 
         //Check password
-        if (isset($_POST['password']) && isset($_POST['password_repeat']))
+        if (strlen($_POST['password']) > 0 && strlen($_POST['password_repeat']) > 0)
         {
             //check password's strongness
 		    $uppercase = preg_match('@[A-Z]@', $_POST['password']);
@@ -94,7 +98,6 @@ class ControllerProfil
 
     private function deleteMember()
     {
-        session_start();
         $this->_memberManager = new MemberManager;
         $this->_memberManager->deleteMember($_SESSION["id"]);
         $_SESSION["id"] = null;

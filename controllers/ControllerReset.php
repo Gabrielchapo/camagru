@@ -73,16 +73,16 @@ class ControllerReset
 			$error = true;
 			$errorMsg['password'] = "Incorrect password (too weak)";
         }
-        /*if ($error = true)
+        if ($error === true)
             $this->changeView($errorMsg);
         else
-        {*/
+        {
             $this->_memberManager = new MemberManager;
             $id = $this->_memberManager->checkToken($_GET['token']);
             $this->_memberManager->resetPassword($id, $password);
 			require_once('controllers/ControllerLogin.php');
             $this->_ctrl = new ControllerLogin(URL."Login");
-        //}
+        }
     }
     
     private function sendEmail()

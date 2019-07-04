@@ -54,7 +54,7 @@ class Image
     {
         return $this->_date_creation;
     }
-    public function getaddress()
+    public function getAddress()
     {
         return $this->_address;
 	}

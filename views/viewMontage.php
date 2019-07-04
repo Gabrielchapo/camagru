@@ -5,7 +5,7 @@
 
 			foreach($images as $image): ?>
 				<div class="parent">
-					<img src="<?= "../public/pictures/".$image->getaddress() ?>">
+					<img src="<?= "../public/pictures/".$image->getAddress() ?>">
 					<div class="child">
 						<a href="#" id="cross" onclick="deleteImg(<?= $image->getId_image()?>)">X </a>
 					</div>

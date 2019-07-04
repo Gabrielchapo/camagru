@@ -50,6 +50,15 @@ class ImageManager extends Model
 
     public function deleteImage($id)
     {
+        //delete pic from the dir
+        $sql = "SELECT address FROM images WHERE id_image = :id";
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $id]);
+        $result = $req->fetch();
+        ?><h1><?php print("../public/pictures/".$result['address']); ?> <h1> <?php
+        unlink("public/pictures/".$result['address']);
+
+        //delete pic from the database
         $sql = 'DELETE FROM images WHERE id_image = :id';
         $req = $this->getBdd()->prepare($sql);
         $req->execute(['id' => $id]);
@@ -62,5 +71,20 @@ class ImageManager extends Model
         $req->execute(['id_image' => $id_image]);
         $result = $req->fetch();
         return $result["id_author"];
+    }
+
+    public function deleteImagesMember($id)
+    {
+        //delete pics from the dir
+        $images = $this->getAll("images", "Image");
+        foreach ($images as $image):
+            if ($image->getId_author() == $id)
+                unlink("public/pictures/".$image->getAddress());
+        endforeach;
+
+        //delete pics from database
+        $sql = 'DELETE FROM images WHERE id_author = :id';
+        $req = $this->getBdd()->prepare($sql);
+        $req->execute(['id' => $id]);
     }
 }
